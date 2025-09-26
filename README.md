@@ -8,19 +8,19 @@
 
 This repository stores the code examples of the PieChart component for the [Getting Started with PieChart](https://js.devexpress.com/Documentation/Guide/UI_Components/PieChart/Getting_Started_with_PieChart/) tutorial. The PieChart UI component visualizes data as a circle divided into portions (slices) to illustrate data proportions. This tutorial shows how to add a PieChart to the page and configure the component's core features.
 
-<div align="center"><img src="./piechart.png" /></div>
+<div align="center"><img src="images/piechart.png" /></div>
 
 ## Files to Review
 
 - **Angular**
-    - [app.component.html](angular/src/app/app.component.html)
-    - [app.component.ts](angular/src/app/app.component.ts)
+    - [app.component.html](Angular/src/app/app.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
 - **jQuery**
-    - [index.js](jquery/src/index.js)
+    - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](react/src/App.js)
+    - [App.js](React/src/App.js)
 - **Vue**
-    - [App.vue](vue/src/App.vue)
+    - [App.vue](Vue/src/App.vue)
 
 ## Documentation
 
