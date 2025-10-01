@@ -1,0 +1,26 @@
+<div id="container">
+    <dx-pie-chart
+        [dataSource]="billionaires"
+        type="doughnut"
+        title="Top-5 Countries by Number of Billionaires"
+        (onPointClick)="onPointClick($event)"
+    >
+        <dxi-series 
+            argumentField="country" 
+            valueField="amount"
+        >
+            <dxo-label 
+                [visible]="true"
+                position="columns"
+                [customizeText]="customizeText"
+            >
+                <dxo-connector [visible]="true"></dxo-connector>
+            </dxo-label>
+        </dxi-series>
+        <dxo-tooltip
+            [enabled]="true"
+            [contentTemplate]="contentTemplate"
+        >
+        </dxo-tooltip>
+    </dx-pie-chart>
+</div>
