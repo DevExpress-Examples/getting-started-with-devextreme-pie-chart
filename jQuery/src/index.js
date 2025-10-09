@@ -1,10 +1,58 @@
+const billionaires = [
+  {
+    country: 'China',
+    amount: 1002,
+  },
+  {
+    country: 'United States',
+    amount: 716,
+  },
+  {
+    country: 'India',
+    amount: 215,
+  },
+  {
+    country: 'United Kingdom',
+    amount: 150,
+  },
+  {
+    country: 'Germany',
+    amount: 145,
+  },
+];
+
 $(() => {
-  let count = 0;
-  $('#btn').dxButton({
-    text: `Click count: ${count}`,
-    onClick(e) {
-      count += 1;
-      e.component.option('text', `Click count: ${count}`);
+  const pieChart = $('#pie-chart').dxPieChart({
+    dataSource: billionaires,
+    series: {
+      argumentField: 'country',
+      valueField: 'amount',
+      label: {
+        visible: true,
+        connector: {
+          visible: true,
+        },
+        position: 'columns',
+        customizeText(pointInfo) {
+          return `${pointInfo.value} billionaires`;
+        },
+      },
     },
-  });
+    type: 'doughnut',
+    title: 'Top-5 Countries by Number of Billionaires',
+    tooltip: {
+      enabled: true,
+      contentTemplate(data) {
+        return data.argumentText;
+      },
+    },
+    onPointClick(e) {
+      const point = e.target;
+      if (point.isSelected()) {
+        point.clearSelection();
+      } else {
+        point.select();
+      }
+    },
+  }).dxPieChart('instance');
 });

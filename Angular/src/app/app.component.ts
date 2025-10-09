@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ClickEvent } from 'devextreme/ui/button';
+import { DxPieChartTypes } from 'devextreme-angular/ui/pie-chart';
+import { Billionaire } from './app.types';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,39 @@ import { ClickEvent } from 'devextreme/ui/button';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular';
+  billionaires: Billionaire[] = [
+    {
+      country: 'China',
+      amount: 1002,
+    },
+    {
+      country: 'United States',
+      amount: 716,
+    },
+    {
+      country: 'India',
+      amount: 215,
+    },
+    {
+      country: 'United Kingdom',
+      amount: 150,
+    },
+    {
+      country: 'Germany',
+      amount: 145,
+    },
+  ];
 
-  counter = 0;
+  customizeText = (pointInfo: any): string => `${pointInfo.value} billionaires`;
 
-  buttonText = 'Click count: 0';
+  contentTemplate = (data: any): string => data.argumentText as string;
 
-  onClick(e: ClickEvent): void {
-    this.counter++;
-    this.buttonText = `Click count: ${this.counter}`;
+  onPointClick(e: DxPieChartTypes.PointClickEvent): void {
+    const point = e.target;
+    if (point.isSelected()) {
+      point.clearSelection();
+    } else {
+      point.select();
+    }
   }
 }
