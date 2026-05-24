@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { DxPieChartTypes } from 'devextreme-angular/ui/pie-chart';
 import { Billionaire } from './app.types';
 
+import { DxPieChartModule } from 'devextreme-angular/ui/pie-chart';
+
 @Component({
     selector: 'app-root',
+    imports: [DxPieChartModule],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    standalone: false
 })
 export class AppComponent {
   billionaires: Billionaire[] = [
